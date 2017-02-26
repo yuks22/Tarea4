@@ -1,0 +1,108 @@
+<div ng-controller="MainCtrl"/>
+<body style ='background-color: #fffcfc;'>
+  <div class="jumbotron text-center"  style ='background-color: #ffb186;'>
+    <h1>Tarea 4</h1>
+    <h3>Hecha por: Yukio Tsuru y José Ballesteros</h3>
+  </div>
+
+  <div class="container">
+    <h1>Sistema de compra de libros</h1>
+    <div class="form-group">
+      <label for="autor">Autor:</label>
+      <input class="form-control" id="autor" placeholder="Nombre del autor del libro" ng-model="libroInput.autor"/>
+    </div>
+    <div class="form-group">
+      <label for="titulo">Título:</label>
+      <input class="form-control" id="titulo" placeholder="Nombre del título del libro" ng-model="libroInput.titulo"/>
+    </div>
+    <div class="form-group">
+      <label for="isbn">ISBN:</label>
+      <input class="form-control" id="isbn" placeholder="ISBN" ng-model="libroInput.isbn"/>
+    </div>
+    <div class="form-group">
+      <label for="editorial">Editorial:</label>
+      <input class="form-control" id="editorial" placeholder="Nombre de la editorial" ng-model="libroInput.editorial"/>
+    </div>
+    <div class="form-group">
+      <label for="anioPublicacion">Año de publicación:</label>
+      <input class="form-control" id="anioPublicacion" placeholder="Año en que se publicó el libro" ng-model="libroInput.anioP"/>
+    </div>
+    <div class="form-group">
+      <label for="edicion">Número de edición:</label>
+      <input class="form-control" id="edicion" placeholder="Número de edición" ng-model="libroInput.numEdi"/>
+    </div>
+    <div class="form-group">
+      <label for="pasta">Tipo de pasta:</label>
+      <select class="form-control" id="pasta" ng-model="libroInput.pasta">
+        <option>Alemana</option>
+        <option>Holandesa</option>
+        <option>En silla</option>
+        <option>En media tela</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="costo">Costo:</label>
+      <input class="form-control" id="costo" placeholder="Costo del libro" ng-model="libroInput.costo"/>
+    </div>
+    <div class="form-group">
+      <label for="proveedor">Proveedores:</label>
+      <select class="form-control" id="proveedor" ng-model="libroInput.proveedor">
+        <option>Proveedor 1</option>
+        <option>Proveedor 2</option>
+        <option>Proveedor 3</option>
+        <option>Proveedor 4</option>
+      </select>
+    </div>
+    <br/>
+    <button class="btn btn-default" ng-click="addLibro(libroInput)">Agregar</button>
+    <br/><br/>
+    <!--<button type="submit" class="btn btn-danger" onclick="borrarLibro()">Borrar</button>
+    <input class="form-control" id="numFila" type="text" value="Número de fila que quieres borrar">
+    <br/>
+    <button type="submit" class="btn btn-default" onclick="editarCampos()">Editar</button>
+    <button type="submit" class="btn btn-success" onclick="finalizarEditar()" id="done" style="display: none;" >Listo</button>
+    <br/>
+    <br/>-->
+  </div>
+
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Editorial</th>
+      <th>ISBN</th>
+      <th>Año de publicación</th>
+      <th>Número de edición</th>
+      <th>Tipo de pasta</th>
+      <th>Costo</th>
+      <th>Proveedor</th>
+      <th>Usuario</th>
+      <th>Estatus</th>
+      <th>Fecha</th>
+      <th>Editar</th>
+      <th>Borrar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="libros in modelo.libros">
+      <td>{{libros.titulo}}</td>
+      <td>{{libros.autor}}</td>
+      <td>{{libros.editorial}}</td>
+      <td>{{libros.isbn}}</td>
+      <td>{{libros.anioP}}</td>
+      <td>{{libros.numEdi}}</td>
+      <td>{{libros.pasta}}</td>
+      <td>{{libros.costo}}</td>
+      <td>{{libros.proveedor}}</td>
+      <td>{{libros.usuario}}</td>
+      <td>{{libros.estatus}}</td>
+      <td>{{libros.fecha}}</td>
+      <td><button class="btn btn-warning" ng-click="editarLibro(libros)">Editar</button></td>
+      <td><button class="btn btn-danger" ng-click="borrarLibro(libros)">Borrar</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
